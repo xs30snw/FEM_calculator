@@ -37,15 +37,6 @@ module.exports = {
             },
         ],
     },
-    optimization: {
-        minimize: false,
-        minimizer: [
-            new ESBuildMinifyPlugin({
-                target: 'es2015',
-                css: false
-            })
-        ]
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
@@ -55,7 +46,19 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'style.css'
         }),
-    ],
+    ],    
+    resolve: {
+        extensions: ['.js', '.tsx'],
+    },    
+    optimization: {
+        minimize: false,
+        minimizer: [
+            new ESBuildMinifyPlugin({
+                target: 'es2015',
+                css: false
+            })
+        ]
+    },
     output: {
         filename: 'main.js',
         path: PUBLIC,
