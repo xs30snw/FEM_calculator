@@ -8,18 +8,18 @@ import NumPad from "./components/NumPad";
 const App = () => {
     return(
         <div className="wrapper">
-            <header>
+            <header className="container">
                 <Header />
             </header>
 
-            <main>
+            <main className="container">
                 <Display />
                 <NumPad />
             </main>
 
-            <footer className="attribution">
+            <footer className="attribution container">
                 Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-                Coded by <a href="#">Your Name Here</a>.
+                Coded by <a href="#">xs30snw</a>.
             </footer>
         </div>
     )

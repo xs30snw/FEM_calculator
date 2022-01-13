@@ -2,7 +2,7 @@ import React from 'react'
 
 function NumPad() {
     return (
-        <section className='mainNumpad container rounded'>
+        <section className='mainNumpad rounded'>
             <button className="mainNumpadButton0 rounded keyNumsAndOps keyTextColor-1">
                 0</button>
             <button className="mainNumpadButton1 rounded keyNumsAndOps keyTextColor-1">

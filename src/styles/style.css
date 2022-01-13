@@ -40,8 +40,10 @@
     --key-background-3: hsl(30, 25%, 89%);
     --key-shadow-3: hsl(28, 16%, 65%);
 
-    --text-1: hsl(221, 14%, 31%);
-    --text-2: hsl(0, 0%, 100%);
+    --txt-col-headerAndDisplay: hsl(0, 0%, 100%);
+    --txt-col-numsAndOps: hsl(221, 14%, 31%);
+    --txt-col-delAndRes: hsl(0, 0%, 100%);
+    --txt-col-equals: hsl(0, 0%, 100%);
 }
 
 [data-theme="theme-2"] {
@@ -58,8 +60,10 @@
     --key-background-3: hsl(45, 7%, 89%);
     --key-shadow-3: hsl(35, 11%, 61%);
 
-    --text-1: hsl(60, 10%, 19%);
-    --text-2: hsl(0, 0%, 100%);
+    --txt-col-headerAndDisplay: hsl(60, 10%, 19%);
+    --txt-col-numsAndOps: hsl(60, 10%, 19%);
+    --txt-col-delAndRes: hsl(0, 0%, 100%);
+    --txt-col-equals: hsl(0, 0%, 100%);
 }
 
 [data-theme="theme-3"] {
@@ -75,11 +79,17 @@
 
     --key-background-3: hsl(268, 47%, 21%);
     --key-shadow-3: hsl(290, 70%, 36%);
-
-    --text-1: hsl(52, 100%, 62%);
-    --text-2: hsl(198, 20%, 13%);
+    
+    --txt-col-headerAndDisplay: hsl(52, 100%, 62%);
+    --txt-col-numsAndOps: hsl(52, 100%, 62%);
+    --txt-col-delAndRes: hsl(0, 0%, 100%);
+    --txt-col-equals: hsl(198, 20%, 13%);
 }
 
+html {
+    font-family: var(--font);
+    font-weight: 700;
+}
 
 /* ------------------------ */
 /* 2.LAYOUT                 */
@@ -99,20 +109,29 @@ body {
 }
 
 .wrapper {
-    width: 500px;
-    margin: 3rem 0;
+    min-width: 375px;
+    width: 100vw;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .wrapper,
 main {
     display: flex;
     flex-direction: column;
-    row-gap: 1rem;
 }
 
-.container {
-    padding-left: 2rem;
-    padding-right: 2rem;
+.wrapper {    
+    row-gap: 2rem;
+}
+
+main {    
+    row-gap: 1.5rem;
 }
 
 /* ------------------------ */
@@ -138,7 +157,6 @@ header {
 .headerThemeNumbers {
     grid-area: tNumbers;
     display: flex;
-    /* justify-content: space-around; */
     text-align: center;
 }
 
@@ -209,8 +227,7 @@ header {
 
 .mainDisplay {
     background-color: var(--bg-screen);
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding: 1.5rem;
 }
 
 .mainDisplayLabel {
@@ -234,15 +251,15 @@ header {
                          " a1    a2    a3      minus  "
                          " point a0    divide  mltpl  "
                          " reset reset equals  equals ";
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    gap: 1.5rem;
+    padding: 1.5rem;
+    column-gap: 1rem;
+    row-gap: 1.25rem;
 }
 
 .mainNumpad > button {
     border: none;
-    outline: none;
-    padding: .5rem;
+    /* outline: none; */
+    padding: 1rem .75rem .75rem .75rem;
     cursor: pointer;
 }
 
@@ -323,24 +340,43 @@ header {
 /* 4.TYPOGRAPHY             */
 /* ------------------------ */
 
-html {
-    color: var(--text-2);
-    font-family: var(--font);
-    font-weight: 700;
-}
-
-/* .mainNumpad > button {
-    font-size: var(--number-size);
-} */
-
 .mainDisplayLabel {
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .headerThemeLabel,
 .headerThemeNumbers {    
     font-size: .7rem;
     letter-spacing: .1rem;
+}
+
+header,
+.mainDisplayLabel {
+    color: var(--txt-col-headerAndDisplay);
+}
+
+.keyNumsAndOps {
+    color: var(--txt-col-numsAndOps);
+    font-size: 1.65rem;
+}
+
+.keyDelAndRes {
+    color: var(--txt-col-delAndRes);
+}
+
+.keyEquals {
+    color: var(--txt-col-equals);
+}
+
+.keyDelAndRes,
+.keyEquals {
+    font-size: 1rem;
+}
+
+.attribution,
+.attribution a {
+    color: var(--txt-col-headerAndDisplay);
+    text-align: center;
 }
 
 /* ------------------------ */
@@ -354,7 +390,6 @@ html {
 .keyDelAndRes {
     background-color: var(--key-background);
     box-shadow: 0 .25rem var(--key-shadow);
-    font-size: 1.2rem;
     font-family: var(--font);
     font-weight: 700;
 }
@@ -362,7 +397,6 @@ html {
 .keyEquals {
     background-color: var(--key-background-2-toggle);
     box-shadow: 0 .25rem var(--key-shadow-2);
-    font-size: 1.2rem;
     font-family: var(--font);
     font-weight: 700;
 }
@@ -370,33 +404,57 @@ html {
 .keyNumsAndOps {
     background-color: var(--key-background-3);
     box-shadow: 0 .25rem var(--key-shadow-3);
-    color: var(--text-1);
     font-family: var(--font);
     font-weight: 700;
-    font-size: var(--number-size);
 }
 
 button:hover {
-    transform: translateY(.2rem);
+    transform: translateY(.15rem);
 }
 
 .keyDelAndRes:hover {
-    box-shadow: 0 .05rem var(--key-shadow);
+    box-shadow: 0 .1rem var(--key-shadow);
 }
 
 .keyEquals:hover {
-    box-shadow: 0 .05rem var(--key-shadow-2);
+    box-shadow: 0 .1rem var(--key-shadow-2);
 }
 
 .keyNumsAndOps:hover {
-    box-shadow: 0 .05rem var(--key-shadow-3);
+    box-shadow: 0 .1rem var(--key-shadow-3);
 }
 
-.keyDelAndRes,
-.keyEquals {
-    color: var(--text-2);
-}
 
 /* ------------------------ */
 /* 6.QUERIES                */
 /* ------------------------ */
+
+@media (min-width: 475px) { 
+    .wrapper {
+        width: 475px;
+    }
+}
+
+@media (min-width: 600px) {
+    .wrapper {
+        width: 575px;
+    }  
+    .mainDisplayLabel {
+        font-size: 3rem;
+    }
+    .keyNumsAndOps {
+        font-size: var(--number-size);
+    }
+    .keyDelAndRes,
+    .keyEquals {
+        font-size: 1.2rem;
+    }
+    .mainDisplay {
+        padding: 2rem;
+    }
+    .mainNumpad {
+        padding: 2rem;
+        column-gap: 1.5rem;
+        row-gap: 1.75rem;
+    }
+}
