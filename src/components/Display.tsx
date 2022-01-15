@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Display() {
+function Display(props) {
     return (
         <section className='mainDisplay rounded'>
-            <label className='mainDisplayLabel'>399,981</label>
+            <label className='mainDisplayLabel'>{props.value}</label>
         </section>
     )
 }
