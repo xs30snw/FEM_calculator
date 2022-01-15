@@ -46,6 +46,7 @@
     --txt-col-equals: hsl(0, 0%, 100%);
 }
 
+/* Dynamic properties, theme-2 */    
 [data-theme="theme-2"] {
     --bg-main: hsl(0, 0%, 90%);
     --bg-toggle-n-keypad: hsl(0, 5%, 81%);
@@ -66,6 +67,7 @@
     --txt-col-equals: hsl(0, 0%, 100%);
 }
 
+/* Dynamic properties, theme-3 */
 [data-theme="theme-3"] {
     --bg-main: hsl(268, 75%, 9%);
     --bg-toggle-n-keypad: hsl(268, 71%, 12%);
@@ -90,6 +92,7 @@ html {
     font-family: var(--font);
     font-weight: 700;
 }
+
 
 /* ------------------------ */
 /* 2.LAYOUT                 */
@@ -133,6 +136,7 @@ main {
 main {    
     row-gap: 1.5rem;
 }
+
 
 /* ------------------------ */
 /* 3.COMPONENTS             */
@@ -228,6 +232,7 @@ header {
 .mainDisplay {
     background-color: var(--bg-screen);
     padding: 1.5rem;
+    overflow-x: hidden;
 }
 
 .mainDisplayLabel {
@@ -379,6 +384,7 @@ header,
     text-align: center;
 }
 
+
 /* ------------------------ */
 /* 5.UTILITY                */
 /* ------------------------ */
@@ -409,19 +415,35 @@ header,
 }
 
 button:hover {
-    transform: translateY(.15rem);
+    transform: translateY(.05rem);
 }
 
 .keyDelAndRes:hover {
-    box-shadow: 0 .1rem var(--key-shadow);
+    box-shadow: 0 .2rem var(--key-shadow);
 }
 
 .keyEquals:hover {
-    box-shadow: 0 .1rem var(--key-shadow-2);
+    box-shadow: 0 .2rem var(--key-shadow-2);
 }
 
 .keyNumsAndOps:hover {
-    box-shadow: 0 .1rem var(--key-shadow-3);
+    box-shadow: 0 .2rem var(--key-shadow-3);
+}
+
+button:active {
+    transform: translateY(.15rem) !important;
+}
+
+.keyDelAndRes:active {
+    box-shadow: 0 .1rem var(--key-shadow) !important;
+}
+
+.keyEquals:active {
+    box-shadow: 0 .1rem var(--key-shadow-2) !important;
+}
+
+.keyNumsAndOps:active {
+    box-shadow: 0 .1rem var(--key-shadow-3) !important;
 }
 
 
