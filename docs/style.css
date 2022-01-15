@@ -1,0 +1,492 @@
+/*!******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/style.css ***!
+  \******************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap);
+/*!**********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/style.css (1) ***!
+  \**********************************************************************************************************************/
+/* ------------------------ */
+/* Table of contents        */
+/* ------------------------ */
+/* 1. Properties            */
+/* 2. Layout                */
+/* 3. Components            */
+/* 3.1. Header              */
+/* 3.2. Main                */
+/* 3.2.1. Display           */
+/* 3.2.2. NumPad            */
+/* 3.3. Footer              */
+/* 4. Typography            */
+/* 5. Utility               */
+/* 6. Queries               */
+/* ------------------------ */
+
+
+/* ------------------------ */
+/* 1.PROPERTIES             */
+/* ------------------------ */
+
+:root {
+    /* Static properties */
+    --number-size: 32px;
+    --font: 'Spartan', sans-serif;
+
+    /* Dynamic properties, theme-1 */    
+    --bg-main: hsl(222, 26%, 31%);
+    --bg-toggle-n-keypad: hsl(223, 31%, 20%);
+    --bg-screen: hsl(224, 36%, 15%);
+
+    --key-background: hsl(225, 21%, 49%);
+    --key-shadow: hsl(224, 28%, 35%);
+
+    --key-background-2-toggle: hsl(6, 63%, 50%);
+    --key-shadow-2: hsl(6, 70%, 34%);
+
+    --key-background-3: hsl(30, 25%, 89%);
+    --key-shadow-3: hsl(28, 16%, 65%);
+
+    --txt-col-headerAndDisplay: hsl(0, 0%, 100%);
+    --txt-col-numsAndOps: hsl(221, 14%, 31%);
+    --txt-col-delAndRes: hsl(0, 0%, 100%);
+    --txt-col-equals: hsl(0, 0%, 100%);
+}
+
+/* Dynamic properties, theme-2 */    
+[data-theme="theme-2"] {
+    --bg-main: hsl(0, 0%, 90%);
+    --bg-toggle-n-keypad: hsl(0, 5%, 81%);
+    --bg-screen: hsl(0, 0%, 93%);
+
+    --key-background: hsl(185, 42%, 37%);
+    --key-shadow: hsl(185, 58%, 25%);
+
+    --key-background-2-toggle: hsl(25, 98%, 40%);
+    --key-shadow-2: hsl(25, 99%, 27%);
+
+    --key-background-3: hsl(45, 7%, 89%);
+    --key-shadow-3: hsl(35, 11%, 61%);
+
+    --txt-col-headerAndDisplay: hsl(60, 10%, 19%);
+    --txt-col-numsAndOps: hsl(60, 10%, 19%);
+    --txt-col-delAndRes: hsl(0, 0%, 100%);
+    --txt-col-equals: hsl(0, 0%, 100%);
+}
+
+/* Dynamic properties, theme-3 */
+[data-theme="theme-3"] {
+    --bg-main: hsl(268, 75%, 9%);
+    --bg-toggle-n-keypad: hsl(268, 71%, 12%);
+    --bg-screen: hsl(268, 71%, 12%);
+
+    --key-background: hsl(281, 89%, 26%);
+    --key-shadow: hsl(285, 91%, 52%);
+
+    --key-background-2-toggle: hsl(176, 100%, 44%);
+    --key-shadow-2: hsl(177, 92%, 70%);
+
+    --key-background-3: hsl(268, 47%, 21%);
+    --key-shadow-3: hsl(290, 70%, 36%);
+    
+    --txt-col-headerAndDisplay: hsl(52, 100%, 62%);
+    --txt-col-numsAndOps: hsl(52, 100%, 62%);
+    --txt-col-delAndRes: hsl(0, 0%, 100%);
+    --txt-col-equals: hsl(198, 20%, 13%);
+}
+
+html {
+    font-family: var(--font);
+    font-weight: 700;
+}
+
+
+/* ------------------------ */
+/* 2.LAYOUT                 */
+/* ------------------------ */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.wrapper {
+    min-width: 375px;
+    width: 100vw;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.wrapper,
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {    
+    row-gap: 2rem;
+}
+
+main {    
+    row-gap: 1.5rem;
+}
+
+
+/* ------------------------ */
+/* 3.COMPONENTS             */
+/* 3.1.HEADER               */
+/* ------------------------ */
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerTheme {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: " .     tNumbers "
+                         " theme toggle   ";
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    row-gap: .25rem;
+}
+
+.headerThemeNumbers {
+    grid-area: tNumbers;
+    display: flex;
+    text-align: center;
+}
+
+.headerThemeNumbers > span {
+    width: 1.5rem;
+}
+
+.headerThemeLabel {
+    grid-area: theme;
+    display: grid;
+    place-items: center;
+}
+
+.headerThemeToggle {
+    grid-area: toggle;
+    display: flex;
+    position: relative;
+
+    background-color: var(--bg-toggle-n-keypad);
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.headerThemeToggleMovingLabel {
+    position: absolute;
+    left: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: var(--key-background-2-toggle);
+    transition: .1s;
+}
+
+.headerThemeToggle input {
+    display: none;
+}
+
+.headerThemeToggle label {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+}
+
+#theme-1:checked ~ .headerThemeToggleMovingLabel {
+    left: 0.3rem;
+}
+
+#theme-2:checked ~ .headerThemeToggleMovingLabel {
+    left: 1.8rem;
+}
+
+#theme-3:checked ~ .headerThemeToggleMovingLabel {
+    left: 3.3rem;
+}
+
+.headerThemeToggle label,
+.headerThemeToggleMovingLabel {
+    align-self: center;
+}
+
+
+/* ------------------------ */
+/* 3.2.MAIN                 */
+/* 3.2.1.DISPLAY            */
+/* ------------------------ */
+
+.mainDisplay {
+    background-color: var(--bg-screen);
+    padding: 1.5rem;
+    overflow-x: hidden;
+}
+
+.mainDisplayLabel {
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+
+
+/* ------------------------ */
+/* 3.2.2.NUMPAD             */
+/* ------------------------ */
+
+.mainNumpad {
+    background-color: var(--bg-toggle-n-keypad);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: " a7    a8    a9      delete "
+                         " a4    a5    a6      plus   "
+                         " a1    a2    a3      minus  "
+                         " point a0    divide  mltpl  "
+                         " reset reset equals  equals ";
+    padding: 1.5rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
+    row-gap: 1.25rem;
+}
+
+.mainNumpad > button {
+    border: none;
+    /* outline: none; */
+    padding: 1rem .75rem .75rem .75rem;
+    cursor: pointer;
+}
+
+.mainNumpadButton0 {
+    grid-area: a0;
+}
+
+.mainNumpadButton1 {
+    grid-area: a1;
+}
+
+.mainNumpadButton2 {
+    grid-area: a2;
+}
+
+.mainNumpadButton3 {
+    grid-area: a3;
+}
+
+.mainNumpadButton4 {
+    grid-area: a4;
+}
+
+.mainNumpadButton5 {
+    grid-area: a5;
+}
+
+.mainNumpadButton6 {
+    grid-area: a6;
+}
+
+.mainNumpadButton7 {
+    grid-area: a7;
+}
+
+.mainNumpadButton8 {
+    grid-area: a8;
+}
+
+.mainNumpadButton9 {
+    grid-area: a9;
+}
+
+.mainNumpadButtonPlus {
+    grid-area: plus;
+}
+
+.mainNumpadButtonMinus {
+    grid-area: minus;
+}
+
+.mainNumpadButtonMultiply {
+    grid-area: mltpl;
+}
+
+.mainNumpadButtonDivide {
+    grid-area: divide;
+}
+
+.mainNumpadButtonEquals {
+    grid-area: equals;
+}
+
+.mainNumpadButtonPoint {
+    grid-area: point;
+}
+
+.mainNumpadButtonDelete {
+    grid-area: delete;
+}
+
+.mainNumpadButtonReset {
+    grid-area: reset;
+}
+
+
+/* ------------------------ */
+/* 4.TYPOGRAPHY             */
+/* ------------------------ */
+
+.mainDisplayLabel {
+    font-size: 2rem;
+}
+
+.headerThemeLabel,
+.headerThemeNumbers {    
+    font-size: .7rem;
+    letter-spacing: .1rem;
+}
+
+header,
+.mainDisplayLabel {
+    color: var(--txt-col-headerAndDisplay);
+}
+
+.keyNumsAndOps {
+    color: var(--txt-col-numsAndOps);
+    font-size: 1.65rem;
+}
+
+.keyDelAndRes {
+    color: var(--txt-col-delAndRes);
+}
+
+.keyEquals {
+    color: var(--txt-col-equals);
+}
+
+.keyDelAndRes,
+.keyEquals {
+    font-size: 1rem;
+}
+
+.attribution,
+.attribution a {
+    color: var(--txt-col-headerAndDisplay);
+    text-align: center;
+}
+
+
+/* ------------------------ */
+/* 5.UTILITY                */
+/* ------------------------ */
+
+.rounded {
+    border-radius: .35rem;
+}
+
+.keyDelAndRes {
+    background-color: var(--key-background);
+    box-shadow: 0 .25rem var(--key-shadow);
+    font-family: var(--font);
+    font-weight: 700;
+}
+
+.keyEquals {
+    background-color: var(--key-background-2-toggle);
+    box-shadow: 0 .25rem var(--key-shadow-2);
+    font-family: var(--font);
+    font-weight: 700;
+}
+
+.keyNumsAndOps {
+    background-color: var(--key-background-3);
+    box-shadow: 0 .25rem var(--key-shadow-3);
+    font-family: var(--font);
+    font-weight: 700;
+}
+
+button:hover {
+    transform: translateY(.05rem);
+}
+
+.keyDelAndRes:hover {
+    box-shadow: 0 .2rem var(--key-shadow);
+}
+
+.keyEquals:hover {
+    box-shadow: 0 .2rem var(--key-shadow-2);
+}
+
+.keyNumsAndOps:hover {
+    box-shadow: 0 .2rem var(--key-shadow-3);
+}
+
+button:active {
+    transform: translateY(.15rem) !important;
+}
+
+.keyDelAndRes:active {
+    box-shadow: 0 .1rem var(--key-shadow) !important;
+}
+
+.keyEquals:active {
+    box-shadow: 0 .1rem var(--key-shadow-2) !important;
+}
+
+.keyNumsAndOps:active {
+    box-shadow: 0 .1rem var(--key-shadow-3) !important;
+}
+
+
+/* ------------------------ */
+/* 6.QUERIES                */
+/* ------------------------ */
+
+@media (min-width: 475px) { 
+    .wrapper {
+        width: 475px;
+    }
+}
+
+@media (min-width: 600px) {
+    .wrapper {
+        width: 575px;
+    }  
+    .mainDisplayLabel {
+        font-size: 3rem;
+    }
+    .keyNumsAndOps {
+        font-size: var(--number-size);
+    }
+    .keyDelAndRes,
+    .keyEquals {
+        font-size: 1.2rem;
+    }
+    .mainDisplay {
+        padding: 2rem;
+    }
+    .mainNumpad {
+        padding: 2rem;
+        -moz-column-gap: 1.5rem;
+             column-gap: 1.5rem;
+        row-gap: 1.75rem;
+    }
+}
+
+/*# sourceMappingURL=style.css.map*/
