@@ -1,37 +1,37 @@
-import React from 'react'
+import React from 'react';
 
-function NumPadButton(props) {
+function NumPadButton({value, handleClick}) {
 
     /**
      * Convert style class names to button text
      */
     const buttonText = 
-        (props.value === 'Plus')     ? '+'     :
-        (props.value === 'Minus')    ? '-'     :
-        (props.value === 'Multiply') ? 'x'     :
-        (props.value === 'Divide')   ? '/'     :
-        (props.value === 'Point')    ? '.'     :
-        (props.value === 'Equals')   ? '='     : 
-        (props.value === 'Del')      ? 'DEL'   : 
-        (props.value === 'Reset')    ? 'RESET' : 
-            props.value;
+        (value === 'Plus')     ? '+'     :
+        (value === 'Minus')    ? '-'     :
+        (value === 'Multiply') ? 'x'     :
+        (value === 'Divide')   ? '/'     :
+        (value === 'Point')    ? '.'     :
+        (value === 'Equals')   ? '='     : 
+        (value === 'Del')      ? 'DEL'   : 
+        (value === 'Reset')    ? 'RESET' : 
+            value;
 
     /**
      * Choose button type for styles
      */
     const buttonType =
-        (props.value === 'Del' || props.value === 'Reset') ? 'keyDelAndRes' : 
-        (props.value === 'Equals') ? 'keyEquals' :
+        (value === 'Del' || value === 'Reset') ? 'keyDelAndRes' : 
+        (value === 'Equals') ? 'keyEquals' :
             'keyNumsAndOps'; 
 
     return (<>
         <button
-          className={"mainNumpadButton"+props.value + " rounded " + buttonType}
-          onClick={() => props.handleClick(props.value)}
+          className={"mainNumpadButton"+value + " rounded " + buttonType}
+          onClick={() => handleClick(value)}
           >
             {buttonText}
         </button>
     </>)
 }
 
-export default NumPadButton
+export default NumPadButton;

@@ -183,6 +183,7 @@ header {
     border-radius: 1rem;
     overflow: hidden;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .headerThemeToggleMovingLabel {
@@ -236,6 +237,7 @@ header {
 }
 
 .mainDisplayLabel {
+    overflow-x: hidden;
     display: block;
     width: 100%;
     text-align: right;

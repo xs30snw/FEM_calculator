@@ -1,22 +1,33 @@
 # Calculator App
 
-My solution to [Calculator App Challenge](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29).
-
-This app was built with Webpack bundler, Esbuild and Typescript. The app has three themes and can be used to perform algebraic operations.
+My solution to [Calculator App Challenge](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). The app has three themes and can be used to perform simple algebraic operations.
 
 - Live Site URL: [GitHub Pages](https://xs30snw.github.io/FEM_calculator/)
+
+## Technologies
+
+- Webpack bundler,
+- Esbuild,
+- React,
+- TypeScript.
 
 ## Screenshot
 
 ![](./screenshot.png)
 
+## Additional info
+
+Theme switcher is partially inspired by [CodePen by Davide Sandonà](https://codepen.io/Davide_sd/pen/XWGOxZ) and [article by Adam Argyle](https://web.dev/building-a-switch-component/). Browser stores the preference for a selected theme in *localStorage*.
+
 ## Tested
 
-- Win 10, Chrome v97, Firefox v95. 
+- Win 10, Chrome v101, Firefox v100. 
 
 ## Ideas for improvement
 
-- [ ] limit input numbers to avoid overflow errors;
-- [ ] show buffer and pending operation right after an operation button pressed but the current number is still zero;
-- [ ] keep selected theme in cookies;
-- [ ] test for problems with a floating point.
+- [ ] fix overflow errors;
+- [ ] simpler app logic;
+- [ ] show pending operation;
+- [ ] fit into screen vertically(?), adjust responsive layout;
+- [ ] accessibility;
+- [ ] notification for storing cookies.

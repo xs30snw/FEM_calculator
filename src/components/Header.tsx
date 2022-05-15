@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 function Header() {
     /**
@@ -7,8 +7,15 @@ function Header() {
      */
     const onRadioChange = () => {
         let themeToggle = document.querySelector('input[name="themeToggle"]:checked') as HTMLInputElement;
-        document.documentElement.setAttribute('data-theme', themeToggle.value);
+        themeToggle.checked = true;
+        localStorage.theme = themeToggle.value;
+        document.documentElement.setAttribute('data-theme', "theme-"+localStorage.theme);
     };
+
+    useEffect(() => {
+        let toggle = document.querySelector('#theme-'+localStorage.theme)  as HTMLInputElement;
+        toggle.checked=true;
+    }, [])
 
     return (<>
         <h1>calc</h1>
@@ -23,11 +30,11 @@ function Header() {
             </div>
 
             <div className="headerThemeToggle">
-                <input type="radio" id="theme-1" name="themeToggle" value="theme-1" onChange={onRadioChange}/>
+                <input type="radio" id="theme-1" name="themeToggle" value="1" onChange={onRadioChange}/>
                 <label htmlFor="theme-1"></label>
-                <input type="radio" id="theme-2" name="themeToggle" value="theme-2" onChange={onRadioChange}/>
+                <input type="radio" id="theme-2" name="themeToggle" value="2" onChange={onRadioChange}/>
                 <label htmlFor="theme-2"></label>
-                <input type="radio" id="theme-3" name="themeToggle" value="theme-3" onChange={onRadioChange}/>
+                <input type="radio" id="theme-3" name="themeToggle" value="3" onChange={onRadioChange}/>
                 <label htmlFor="theme-3"></label>
                 <div className='headerThemeToggleMovingLabel'></div>
             </div>

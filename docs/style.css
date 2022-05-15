@@ -1,10 +1,4 @@
-/*!******************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/style.css ***!
-  \******************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap);
-/*!**********************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/styles/style.css (1) ***!
-  \**********************************************************************************************************************/
 /* ------------------------ */
 /* Table of contents        */
 /* ------------------------ */
@@ -189,6 +183,7 @@ header {
     border-radius: 1rem;
     overflow: hidden;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .headerThemeToggleMovingLabel {
@@ -242,6 +237,7 @@ header {
 }
 
 .mainDisplayLabel {
+    overflow-x: hidden;
     display: block;
     width: 100%;
     text-align: right;

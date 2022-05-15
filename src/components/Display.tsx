@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Display(props) {
+function Display({value}) {
     return (
-        <section className='mainDisplay rounded'>
-            <label className='mainDisplayLabel'>{props.value}</label>
-        </section>
+        <div className='mainDisplay rounded'>
+            <label className='mainDisplayLabel'>{value}</label>
+        </div>
     )
 }
 
-export default Display
+export default Display;
